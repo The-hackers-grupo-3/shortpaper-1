@@ -5,7 +5,8 @@
   "main": "main.ts",
   "scripts": {
     "test": "jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "ts-node ./bin/main.ts"
   },
   "lint-staged": {
     "lib/**/*.ts": [
