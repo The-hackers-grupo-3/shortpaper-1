@@ -1,3 +1,4 @@
 export default function sum(a: number, b: number): number {
-  return a + b;
+  const c = a + b;
+  return c;
 }
