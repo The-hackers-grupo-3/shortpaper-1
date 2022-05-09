@@ -2,9 +2,9 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx lint-staged
-npx prettier --write "lib/**/*.ts"
-npx prettier --write "tests/**/*.ts"
-npx prettier --write "bin/**/*.ts"
+# npx prettier --write "lib/**/*.ts"
+# npx prettier --write "tests/**/*.ts"
+# npx prettier --write "bin/**/*.ts"
 
 npm test
 
