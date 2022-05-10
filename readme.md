@@ -2,7 +2,7 @@
 
 ---
 
-## Miembros
+## Miembros 🦸‍♂️
 
 - Arturo Lecuona [@ArtuKILL](https://github.com/ArtuKILL)
 
@@ -12,7 +12,7 @@
 
 - Jesús Soarez [@???](https://github.com/)
 
-## Herramientas
+## Herramientas 🛠
 
 Se utilzan distintas herramientas para facilitar el desarrollo del código del short paper.
 
