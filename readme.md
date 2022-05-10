@@ -1,5 +1,7 @@
 # Primer Short-paper
 
+![build](https://img.shields.io/github/workflow/status/ArtuKILL/shortpaper-1/Node.js%20CI)
+
 ## Miembros 🦸‍♂️
 
 - Arturo Lecuona [@ArtuKILL](https://github.com/ArtuKILL)
