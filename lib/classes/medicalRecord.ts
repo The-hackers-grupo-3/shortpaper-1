@@ -14,7 +14,7 @@ export abstract class MedicalRecord implements Observable {
   private _heartRate: number;
   private _bloodPressure: number;
   private _saturation: number;
-  //private _registers: MedicalRecord[];
+  private _registers: MedicalRecord[] = [];
   private _auditorRec: Observer[] = [];
 
   constructor(
@@ -27,8 +27,7 @@ export abstract class MedicalRecord implements Observable {
     personalHistory: string,
     heartRate: number,
     bloodPressure: number,
-    saturation: number,
-    registers: MedicalRecord
+    saturation: number
   ) {
     this._id = id;
     this._creationDate = creationDate;
@@ -46,23 +45,16 @@ export abstract class MedicalRecord implements Observable {
   abstract createMedicalRec(): void;
   abstract addRecord(medicalRecord: MedicalRecord): void;
 
-  //?????
-  // addRecord(medicalRecord: MedicalRecord){
-  //     this._registers.push(medicalRecord);
-  // }
-
   //Métodos de la implementación del Observer
   attach(o: Observer) {
     this._auditorRec.push(o);
   }
 
   detach(o: Observer) {
-    console.log("cualquier cosa detach");
+    this._auditorRec = this._auditorRec.filter((obs) => obs !== o);
   }
 
   notify() {
-    for (const auditor of this._auditorRec) {
-      auditor.update();
-    }
+    this._auditorRec.forEach((o) => o.update());
   }
 }
