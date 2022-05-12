@@ -1,45 +1,143 @@
-import { Patient } from "../classes/patient";
-import { Doctor } from "../classes/doctor";
 import { Observable } from "../interfaces/observable";
 import { Observer } from "../interfaces/observer";
 
 export abstract class MedicalRecord implements Observable {
   private _id: string;
   private _creationDate: Date;
-  private _doctor: Doctor;
-  private _patient: Patient;
-  private _weight: number;
-  private _height: number;
-  private _personalHistory: string;
-  private _heartRate: number;
-  private _bloodPressure: number;
-  private _saturation: number;
+  private _weight: number | null;
+  private _height: number | null;
+  private _personalHistory: string | null;
+  private _heartRate: number | null;
+  private _bloodPressure: number | null;
+  private _saturation: number | null;
   private _registers: MedicalRecord[] = [];
   private _auditorRec: Observer[] = [];
 
   constructor(
     id: string,
-    creationDate: Date,
-    doctor: Doctor,
-    patient: Patient,
-    weight: number,
-    height: number,
-    personalHistory: string,
-    heartRate: number,
-    bloodPressure: number,
-    saturation: number
+    creationDate?: Date | null,
+    weight?: number | null,
+    height?: number | null,
+    personalHistory?: string | null,
+    heartRate?: number | null,
+    bloodPressure?: number | null,
+    saturation?: number | null
   ) {
     this._id = id;
-    this._creationDate = creationDate;
-    this._doctor = doctor;
-    this._patient = patient;
-    this._weight = weight;
-    this._height = height;
-    this._personalHistory = personalHistory;
-    this._heartRate = heartRate;
-    this._bloodPressure = bloodPressure;
-    this._saturation = saturation;
+    this._creationDate = creationDate || new Date();
+    this._weight = weight || null;
+    this._height = height || null;
+    this._personalHistory = personalHistory || null;
+    this._heartRate = heartRate || null;
+    this._bloodPressure = bloodPressure || null;
+    this._saturation = saturation || null;
     //this._registers.push(this);
+  }
+
+  //------------------------------
+  //------GETTERS & SETTERS-------
+  //------------------------------
+
+  public get Id() {
+    return this._id;
+  }
+
+  public set Id(Id: string | null) {
+    if (Id == null) {
+      return;
+    }
+    this._id = Id;
+  }
+
+  //--------------------------------------------------
+
+  public get CreationDate() {
+    return this._creationDate;
+  }
+
+  public set CreationDate(CreationDate: Date | null) {
+    if (CreationDate == null) {
+      return;
+    }
+    this._creationDate = CreationDate;
+  }
+
+  //--------------------------------------------------
+
+  public get Weight() {
+    return this._weight;
+  }
+
+  public set Weight(Weight: number | null) {
+    if (Weight == null) {
+      return;
+    }
+    this._weight = Weight;
+  }
+
+  //--------------------------------------------------
+
+  public get Height() {
+    return this._height;
+  }
+
+  public set Height(Height: number | null) {
+    if (Height == null) {
+      return;
+    }
+    this._height = Height;
+  }
+
+  //--------------------------------------------------
+
+  public get PersonalHistory() {
+    return this._personalHistory;
+  }
+
+  public set PersonalHistory(PersonalHistory: string | null) {
+    if (PersonalHistory == null) {
+      return;
+    }
+    this._personalHistory = PersonalHistory;
+  }
+
+  //--------------------------------------------------
+
+  public get HeartRate() {
+    return this._heartRate;
+  }
+
+  public set HeartRate(HeartRate: number | null) {
+    if (HeartRate == null) {
+      return;
+    }
+    this._heartRate = HeartRate;
+  }
+
+  //--------------------------------------------------
+
+  public get BloodPressure() {
+    return this._bloodPressure;
+  }
+
+  public set BloodPressure(BloodPressure: number | null) {
+    if (BloodPressure == null) {
+      return;
+    }
+    this._bloodPressure = BloodPressure;
+  }
+
+  //--------------------------------------------------
+
+  public get Saturation() {
+    return this._saturation;
+  }
+
+  public set Saturation(Saturation: number | null) {
+    if (Saturation == null) {
+      return;
+    }
+    this._saturation = Saturation;
   }
 
   //Métodos de la implementación del Observer
