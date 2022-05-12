@@ -4,6 +4,7 @@
 import { Patient } from "../classes/patient";
 import { AppointmentManager } from "../interfaces/appointmentManager";
 import { Specialty } from "../interfaces/specialty";
+import { AppointmentManagerImpl } from "./appointmentManagerImpl";
 export class Doctor {
   private _name: string;
   private _patients: Patient[] = [];

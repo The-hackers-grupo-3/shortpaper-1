@@ -2,7 +2,7 @@ import { AppointmentManager } from "../interfaces/appointmentManager";
 import { Appointment } from "./appointment";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-class AppointmentManagerImpl implements AppointmentManager {
+export class AppointmentManagerImpl implements AppointmentManager {
   requestAppointment(appointment: Appointment): Promise<Appointment> {
     throw new Error("Method not implemented.");
   }
