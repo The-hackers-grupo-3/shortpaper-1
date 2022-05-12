@@ -42,9 +42,6 @@ export abstract class MedicalRecord implements Observable {
     //this._registers.push(this);
   }
 
-  abstract createMedicalRec(): void;
-  abstract addRecord(medicalRecord: MedicalRecord): void;
-
   //Métodos de la implementación del Observer
   attach(o: Observer) {
     this._auditorRec.push(o);

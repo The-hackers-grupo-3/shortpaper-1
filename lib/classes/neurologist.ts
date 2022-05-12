@@ -1,8 +1,9 @@
+import { Specialty } from "../interfaces/specialty";
 import { Doctor } from "./doctor";
 import { MedicalRecord } from "./medicalRecord";
 import { Patient } from "./patient";
 
-class Neurologist extends MedicalRecord {
+class Neurologist extends MedicalRecord implements Specialty {
   private _motor: string;
   private _reflexes: string;
   private _sensory: string;
@@ -20,8 +21,8 @@ class Neurologist extends MedicalRecord {
     personalHistory: string,
     heartRate: number,
     bloodPressure: number,
-    saturation: number,
-    registers: MedicalRecord
+    saturation: number
+    //registers: MedicalRecord
   ) {
     super(
       id,
@@ -33,18 +34,18 @@ class Neurologist extends MedicalRecord {
       personalHistory,
       heartRate,
       bloodPressure,
-      saturation,
-      registers
+      saturation
+      //registers
     );
     this._motor = motor;
     this._reflexes = reflexes;
     this._sensory = sensory;
   }
 
-  createMedicalRec() {
+  createMedicalRecord(patient: Patient): Specialty {
     throw new Error("Method not implemented.");
   }
-  addRecord(medicalRecord: MedicalRecord) {
+  modifyMedicalRecord(): void {
     throw new Error("Method not implemented.");
   }
 }
