@@ -2,11 +2,18 @@
     Clase DOCTOR
 */
 import { Patient } from "../classes/patient";
+import { AppointmentManager } from "../interfaces/appointmentManager";
+import { Specialty } from "../interfaces/specialty";
 export class Doctor {
   private _name: string;
+  private _patients: Patient[] = [];
+  private _specialties: Specialty[] = [];
+  private _appointmentManager: AppointmentManager;
 
-  constructor(name: string, patients: Patient) {
+  constructor(name: string, specialties?: Specialty[]) {
     this._name = name;
+    this._specialties = specialties || [];
+    this._appointmentManager = new AppointmentManagerImpl();
   }
 
   public get name() {
