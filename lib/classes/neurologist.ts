@@ -19,8 +19,8 @@ export class Neurologist extends MedicalRecord implements Specialty {
     saturation: number | null,
     motor: string | null,
     reflexes: string | null,
-    sensory: string | null
-    //registers: MedicalRecord
+    sensory: string | null,
+    registers: MedicalRecord[] = []
   ) {
     super(
       id,
@@ -30,8 +30,8 @@ export class Neurologist extends MedicalRecord implements Specialty {
       personalHistory || null,
       heartRate || null,
       bloodPressure || null,
-      saturation || null
-      //registers
+      saturation || null,
+      registers
     );
     this._motor = motor || null;
     this._reflexes = reflexes || null;
@@ -79,9 +79,10 @@ export class Neurologist extends MedicalRecord implements Specialty {
     this._sensory = Sensory;
   }
 
-  createMedicalRecord(patient: Patient): Specialty {
-    throw new Error("Method not implemented.");
+  createMedicalRecord(patient: Patient) {
+    patient.medicalRecord.addMedicalRecord(this);
   }
+
   modifyMedicalRecord(neurologist: Neurologist): void {
     this.Id = neurologist.Id;
     this.CreationDate = neurologist.CreationDate;

@@ -1,5 +1,6 @@
 import { Observable } from "../interfaces/observable";
 import { Observer } from "../interfaces/observer";
+import { Specialty } from "../interfaces/specialty";
 
 export abstract class MedicalRecord implements Observable {
   private _id: string;
@@ -15,13 +16,14 @@ export abstract class MedicalRecord implements Observable {
 
   constructor(
     id: string,
-    creationDate?: Date | null,
-    weight?: number | null,
-    height?: number | null,
-    personalHistory?: string | null,
-    heartRate?: number | null,
-    bloodPressure?: number | null,
-    saturation?: number | null
+    creationDate: Date | null,
+    weight: number | null,
+    height: number | null,
+    personalHistory: string | null,
+    heartRate: number | null,
+    bloodPressure: number | null,
+    saturation: number | null,
+    registers: MedicalRecord[]
   ) {
     this._id = id;
     this._creationDate = creationDate || new Date();
@@ -31,7 +33,7 @@ export abstract class MedicalRecord implements Observable {
     this._heartRate = heartRate || null;
     this._bloodPressure = bloodPressure || null;
     this._saturation = saturation || null;
-    //this._registers.push(this);
+    this._registers = registers;
   }
 
   //------------------------------
@@ -138,6 +140,16 @@ export abstract class MedicalRecord implements Observable {
       return;
     }
     this._saturation = Saturation;
+  }
+
+  //--------------------------------------------------
+
+  public get registry() {
+    return this._registers;
+  }
+
+  addMedicalRecord(medicalRecord: MedicalRecord) {
+    this._registers.push(medicalRecord);
   }
 
   //Métodos de la implementación del Observer

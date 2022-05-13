@@ -28,4 +28,8 @@ export class Doctor {
       this._name = Name;
     }
   }
+
+  public get specialties() {
+    return this._specialties;
+  }
 }

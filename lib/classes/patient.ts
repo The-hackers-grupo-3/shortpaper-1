@@ -2,6 +2,7 @@
     Clase PACIENTE
 */
 import { PaymentStatus } from "../enum/paymentStatus";
+import { MedicalRecord } from "./medicalRecord";
 export class Patient {
   private _name: string;
   private _birthday: Date;
@@ -11,6 +12,7 @@ export class Patient {
   private _phone: string;
   private _email: string;
   private _paymentStatus: PaymentStatus;
+  private _medicalRecord: MedicalRecord;
 
   constructor(
     name: string,
@@ -20,7 +22,8 @@ export class Patient {
     height: number,
     phone: string,
     email: string,
-    paymentStatus: PaymentStatus
+    paymentStatus: PaymentStatus,
+    medicalRecord: MedicalRecord
   ) {
     this._name = name;
     this._birthday = birthday;
@@ -30,6 +33,7 @@ export class Patient {
     this._phone = phone;
     this._email = email;
     this._paymentStatus = paymentStatus;
+    this._medicalRecord = medicalRecord;
   }
 
   public get name() {
@@ -114,5 +118,9 @@ export class Patient {
 
   public get paymentStatus() {
     return this._paymentStatus;
+  }
+
+  public get medicalRecord() {
+    return this._medicalRecord;
   }
 }

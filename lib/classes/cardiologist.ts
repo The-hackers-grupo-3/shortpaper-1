@@ -17,9 +17,9 @@ export class Cardiologist extends MedicalRecord implements Specialty {
     bloodPressure: number | null,
     saturation: number | null,
     QRSduration: number | null,
-    Qtc: number | null,
-    Pwave: number | null
-    //registers: MedicalRecord
+    QTc: number | null,
+    Pwave: number | null,
+    registers: MedicalRecord[] = []
   ) {
     super(
       id,
@@ -29,11 +29,11 @@ export class Cardiologist extends MedicalRecord implements Specialty {
       personalHistory || null,
       heartRate || null,
       bloodPressure || null,
-      saturation || null
-      //registers,
+      saturation || null,
+      registers
     );
     this._QRSduration = QRSduration || null;
-    this._QTc = Qtc || null;
+    this._QTc = QTc || null;
     this._Pwave = Pwave || null;
   }
 
@@ -79,9 +79,10 @@ export class Cardiologist extends MedicalRecord implements Specialty {
   }
 
   //METHODS
-  createMedicalRecord(patient: Patient): Specialty {
-    throw new Error("Method not implemented.");
+  createMedicalRecord(patient: Patient) {
+    patient.medicalRecord.addMedicalRecord(this);
   }
+
   modifyMedicalRecord(cardiologist: Cardiologist): void {
     this.QRSduration = cardiologist.QRSduration;
     this.QTc = cardiologist.QTc;
