@@ -1,10 +1,9 @@
+import { BaseRecord } from "../lib/classes/baseRecord";
 import { Cardiologist } from "../lib/classes/cardiologist";
 import { Doctor } from "../lib/classes/doctor";
-import { MedicalRecord } from "../lib/classes/medicalRecord";
 import { Neurologist } from "../lib/classes/neurologist";
 import { Patient } from "../lib/classes/patient";
 import { PaymentStatus } from "../lib/enum/paymentStatus";
-import { Specialty } from "../lib/interfaces/specialty";
 
 //----------------------------------------------------------------------
 //----------------------TEST MODIFY MEDICAL RECORD----------------------
@@ -118,6 +117,18 @@ const recNeurologistt1 = new Neurologist(
   "Hola"
 );
 
+const rootRecordPacient = new BaseRecord(
+  "1",
+  new Date(Date.parse("10/10/1999")),
+  1,
+  1,
+  "",
+  1,
+  1,
+  1,
+  []
+);
+
 const paciente1 = new Patient(
   "Manuel",
   new Date(),
@@ -127,7 +138,7 @@ const paciente1 = new Patient(
   "0435345345",
   "manuel@gmail.com",
   PaymentStatus.PAYED,
-  recCardiologist1
+  rootRecordPacient
 );
 
 const doctor = new Doctor("Alberto", [recCardiologist1]);
