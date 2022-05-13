@@ -144,7 +144,6 @@ const paciente1 = new Patient(
 const doctor = new Doctor("Alberto", [recCardiologist1]);
 
 doctor.specialties[0].createMedicalRecord(paciente1);
-
 console.log("CREADO");
 recCardiologist1.createMedicalRecord(paciente1);
 recCardiologist1.createMedicalRecord(paciente1);
