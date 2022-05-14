@@ -1,9 +1,7 @@
-import { Specialty } from "../interfaces/specialty";
-import { Doctor } from "./doctor";
-import { MedicalRecord } from "./medicalRecord";
-import { Patient } from "./patient";
+import { MedicalRecord } from "./MedicalRecord";
+import { Patient } from "../patient";
 
-export class Neurologist extends MedicalRecord implements Specialty {
+export class NeurologistRecord extends MedicalRecord {
   private _motor: string | null;
   private _reflexes: string | null;
   private _sensory: string | null;
@@ -79,11 +77,12 @@ export class Neurologist extends MedicalRecord implements Specialty {
     this._sensory = Sensory;
   }
 
-  createMedicalRecord(patient: Patient) {
+  public create(patient: Patient) {
     patient.medicalRecord.addMedicalRecord(this);
+    this.notify();
   }
 
-  modifyMedicalRecord(neurologist: Neurologist): void {
+  public modify(neurologist: NeurologistRecord): void {
     this.Id = neurologist.Id;
     this.CreationDate = neurologist.CreationDate;
     this.Weight = neurologist.Weight;
@@ -95,5 +94,6 @@ export class Neurologist extends MedicalRecord implements Specialty {
     this.Motor = neurologist.Motor;
     this.Reflexes = neurologist.Reflexes;
     this.Sensory = neurologist.Sensory;
+    this.notify();
   }
 }

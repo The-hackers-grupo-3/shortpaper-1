@@ -3,8 +3,8 @@
 */
 import { Patient } from "../classes/patient";
 import { AppointmentManager } from "../interfaces/appointmentManager";
-import { Specialty } from "../interfaces/specialty";
 import { AppointmentManagerImpl } from "./appointmentManagerImpl";
+import { Specialty } from "./Specialties/Specialty";
 export class Doctor {
   private _name: string;
   private _patients: Patient[] = [];
@@ -31,5 +31,18 @@ export class Doctor {
 
   public get specialties() {
     return this._specialties;
+  }
+
+  public addSpecialty(specialty: Specialty) {
+    this._specialties.push(specialty);
+  }
+
+  //TODO: Temporal
+  public get patients() {
+    return this._patients;
+  }
+
+  public addPatient(patient: Patient) {
+    this._patients.push(patient);
   }
 }

@@ -1,8 +1,7 @@
-import { Specialty } from "../interfaces/specialty";
-import { MedicalRecord } from "./medicalRecord";
-import { Patient } from "./patient";
+import { MedicalRecord } from "./MedicalRecord";
+import { Patient } from "../patient";
 
-export class Cardiologist extends MedicalRecord implements Specialty {
+export class CardiologistRecord extends MedicalRecord {
   private _QRSduration: number | null;
   private _QTc: number | null;
   private _Pwave: number | null;
@@ -79,11 +78,13 @@ export class Cardiologist extends MedicalRecord implements Specialty {
   }
 
   //METHODS
-  createMedicalRecord(patient: Patient) {
+
+  public create(patient: Patient) {
     patient.medicalRecord.addMedicalRecord(this);
+    this.notify();
   }
 
-  modifyMedicalRecord(cardiologist: Cardiologist): void {
+  public modify(cardiologist: CardiologistRecord): void {
     this.QRSduration = cardiologist.QRSduration;
     this.QTc = cardiologist.QTc;
     this.Pwave = cardiologist.Pwave;
@@ -95,5 +96,6 @@ export class Cardiologist extends MedicalRecord implements Specialty {
     this.HeartRate = cardiologist.HeartRate;
     this.BloodPressure = cardiologist.BloodPressure;
     this.Saturation = cardiologist.Saturation;
+    this.notify();
   }
 }

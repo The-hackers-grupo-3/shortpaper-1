@@ -2,7 +2,7 @@ import { PaymentMethod } from "../interfaces/paymentmethod";
 
 import { Currency } from "../classes/currency";
 
-class Metamask implements PaymentMethod {
+export class Metamask implements PaymentMethod {
   //Atributes
   payment: string;
   subscriptionCost: Currency;

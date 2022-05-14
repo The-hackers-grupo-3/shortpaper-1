@@ -1,6 +1,6 @@
-import { Observable } from "../interfaces/observable";
-import { Observer } from "../interfaces/observer";
-import { Specialty } from "../interfaces/specialty";
+import { Observable } from "../../interfaces/observable";
+import { Observer } from "../../interfaces/observer";
+import { Patient } from "../patient";
 
 export abstract class MedicalRecord implements Observable {
   private _id: string;
@@ -23,7 +23,7 @@ export abstract class MedicalRecord implements Observable {
     heartRate: number | null,
     bloodPressure: number | null,
     saturation: number | null,
-    registers: MedicalRecord[]
+    registers?: MedicalRecord[]
   ) {
     this._id = id;
     this._creationDate = creationDate || new Date();
@@ -33,7 +33,7 @@ export abstract class MedicalRecord implements Observable {
     this._heartRate = heartRate || null;
     this._bloodPressure = bloodPressure || null;
     this._saturation = saturation || null;
-    this._registers = registers;
+    this._registers = registers || [];
   }
 
   //------------------------------
@@ -143,6 +143,10 @@ export abstract class MedicalRecord implements Observable {
   }
 
   //--------------------------------------------------
+
+  public abstract create(patient: Patient): void;
+
+  public abstract modify(medicalRecord: MedicalRecord): void;
 
   public get registry() {
     return this._registers;

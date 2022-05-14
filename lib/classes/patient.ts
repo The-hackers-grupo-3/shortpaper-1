@@ -2,7 +2,7 @@
     Clase PACIENTE
 */
 import { PaymentStatus } from "../enum/paymentStatus";
-import { MedicalRecord } from "./medicalRecord";
+import { MedicalRecord } from "./MedicalRecords/MedicalRecord";
 export class Patient {
   private _name: string;
   private _birthday: Date;
