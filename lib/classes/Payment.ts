@@ -1,6 +1,6 @@
 import { IPaymentMethod } from "../interfaces/IPaymentMethod";
 import { ISubscriptionType } from "../interfaces/ISubcriptionType";
-import { Patient } from "./Patient";
+import { Patient } from "./patient";
 
 class Payment {
   patient?: Patient;

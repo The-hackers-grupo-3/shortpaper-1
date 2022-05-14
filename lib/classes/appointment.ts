@@ -1,6 +1,6 @@
-import { MedicalAppointmentState } from "../enum/MedicalAppointmentState";
+import { MedicalAppointmentState } from "../enum/medicalAppointmentState";
 import { Doctor } from "./Doctor";
-import { Patient } from "./Patient";
+import { Patient } from "./patient";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Appointment {

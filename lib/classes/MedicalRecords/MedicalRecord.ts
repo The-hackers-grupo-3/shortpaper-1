@@ -1,8 +1,8 @@
-import { Observable } from "../../interfaces/IObservable";
-import { Observer } from "../../interfaces/IObserver";
-import { Patient } from "../Patient";
+import { IObservable } from "../../interfaces/IObservable";
+import { IObserver } from "../../interfaces/IObserver";
+import { Patient } from "../patient";
 
-export abstract class MedicalRecord implements Observable {
+export abstract class MedicalRecord implements IObservable {
   private _id: string;
   private _creationDate: Date;
   private _weight: number | null;
@@ -12,7 +12,7 @@ export abstract class MedicalRecord implements Observable {
   private _bloodPressure: number | null;
   private _saturation: number | null;
   private _registers: MedicalRecord[] = [];
-  private _auditorRec: Observer[] = [];
+  private _auditorRec: IObserver[] = [];
 
   constructor(
     id: string,
@@ -157,11 +157,11 @@ export abstract class MedicalRecord implements Observable {
   }
 
   //Métodos de la implementación del Observer
-  attach(o: Observer) {
+  attach(o: IObserver) {
     this._auditorRec.push(o);
   }
 
-  detach(o: Observer) {
+  detach(o: IObserver) {
     this._auditorRec = this._auditorRec.filter((obs) => obs !== o);
   }
 
