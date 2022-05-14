@@ -1,5 +1,5 @@
 import { MedicalAppointmentState } from "../enum/medicalAppointmentState";
-import { Doctor } from "./Doctor";
+import { Doctor } from "./doctor";
 import { Patient } from "./patient";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -1,6 +1,6 @@
 import { ISubscriptionType } from "../interfaces/ISubcriptionType";
 
-import { Currency } from "./Currency";
+import { Currency } from "./currency";
 
 class Anual implements ISubscriptionType {
   //Atributes

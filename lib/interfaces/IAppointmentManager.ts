@@ -1,4 +1,4 @@
-import { Appointment } from "../classes/Appointment";
+import { Appointment } from "../classes/appointment";
 
 export interface IAppointmentManager {
   requestAppointment(appointment: Appointment): Promise<Appointment>;

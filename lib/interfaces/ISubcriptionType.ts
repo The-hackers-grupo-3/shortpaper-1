@@ -1,4 +1,4 @@
-import { Currency } from "../classes/Currency";
+import { Currency } from "../classes/currency";
 
 export interface ISubscriptionType {
   //Atributes

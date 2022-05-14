@@ -1,5 +1,5 @@
 import { IAppointmentManager } from "../interfaces/IAppointmentManager";
-import { Appointment } from "./Appointment";
+import { Appointment } from "./appointment";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export class AppointmentManagerImpl implements IAppointmentManager {

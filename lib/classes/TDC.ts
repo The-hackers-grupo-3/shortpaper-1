@@ -1,6 +1,6 @@
 import { IPaymentMethod } from "../interfaces/IPaymentMethod";
 
-import { Currency } from "./Currency";
+import { Currency } from "./currency";
 
 class TDC implements IPaymentMethod {
   //Atributes
