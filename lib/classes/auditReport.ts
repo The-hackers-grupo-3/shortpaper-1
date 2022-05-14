@@ -1,10 +1,10 @@
-import { Observable } from "../interfaces/observable";
-import { Observer } from "../interfaces/observer";
+import { IObservable } from "../interfaces/IObservable";
+import { IObserver } from "../interfaces/IObserver";
 
-export class AuditReport implements Observer {
+export class AuditReport implements IObserver {
   private observable;
 
-  constructor(observable: Observable) {
+  constructor(observable: IObservable) {
     this.observable = observable;
   }
 

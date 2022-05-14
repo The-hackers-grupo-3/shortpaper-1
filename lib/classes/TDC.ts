@@ -1,8 +1,8 @@
-import { PaymentMethod } from "../interfaces/paymentmethod";
+import { IPaymentMethod } from "../interfaces/IPaymentMethod";
 
-import { Currency } from "../classes/currency";
+import { Currency } from "./Currency";
 
-class TDC implements PaymentMethod {
+class TDC implements IPaymentMethod {
   //Atributes
   payment: string;
   subscriptionCost: Currency;

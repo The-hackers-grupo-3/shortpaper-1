@@ -1,15 +1,15 @@
 /*
     Clase DOCTOR
 */
-import { Patient } from "../classes/patient";
-import { AppointmentManager } from "../interfaces/appointmentManager";
-import { AppointmentManagerImpl } from "./appointmentManagerImpl";
+import { Patient } from "./Patient";
+import { IAppointmentManager } from "../interfaces/IAppointmentManager";
+import { AppointmentManagerImpl } from "./AppointmentManagerImpl";
 import { Specialty } from "./Specialties/Specialty";
 export class Doctor {
   private _name: string;
   private _patients: Patient[] = [];
   private _specialties: Specialty[] = [];
-  private _appointmentManager: AppointmentManager;
+  private _appointmentManager: IAppointmentManager;
 
   constructor(name: string, specialties?: Specialty[]) {
     this._name = name;

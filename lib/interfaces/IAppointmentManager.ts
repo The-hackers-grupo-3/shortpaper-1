@@ -1,6 +1,6 @@
-import { Appointment } from "../classes/appointment";
+import { Appointment } from "../classes/Appointment";
 
-export interface AppointmentManager {
+export interface IAppointmentManager {
   requestAppointment(appointment: Appointment): Promise<Appointment>;
   createAppointment(): Appointment;
   acceptAppointment(appointment: Appointment): Appointment;

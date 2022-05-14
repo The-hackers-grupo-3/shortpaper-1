@@ -1,8 +1,8 @@
-import { AppointmentManager } from "../interfaces/appointmentManager";
-import { Appointment } from "./appointment";
+import { IAppointmentManager } from "../interfaces/IAppointmentManager";
+import { Appointment } from "./Appointment";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-export class AppointmentManagerImpl implements AppointmentManager {
+export class AppointmentManagerImpl implements IAppointmentManager {
   requestAppointment(appointment: Appointment): Promise<Appointment> {
     throw new Error("Method not implemented.");
   }

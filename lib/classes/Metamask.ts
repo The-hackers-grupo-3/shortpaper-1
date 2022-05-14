@@ -1,8 +1,8 @@
-import { PaymentMethod } from "../interfaces/paymentmethod";
+import { IPaymentMethod } from "../interfaces/IPaymentMethod";
 
-import { Currency } from "../classes/currency";
+import { Currency } from "./Currency";
 
-export class Metamask implements PaymentMethod {
+export class Metamask implements IPaymentMethod {
   //Atributes
   payment: string;
   subscriptionCost: Currency;

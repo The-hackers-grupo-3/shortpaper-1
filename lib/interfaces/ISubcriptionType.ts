@@ -1,6 +1,6 @@
-import { Currency } from "../classes/currency";
+import { Currency } from "../classes/Currency";
 
-export interface SubscriptionType {
+export interface ISubscriptionType {
   //Atributes
   paymentModality: string;
   subscriptionCost: Currency;
