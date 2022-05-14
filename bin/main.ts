@@ -4,6 +4,11 @@ import { NeurologistRecord } from "../lib/classes/MedicalRecords/NeurologistReco
 import { Patient } from "../lib/classes/patient";
 import { Neurologist } from "../lib/classes/Specialties/Neurologist";
 import { PaymentStatus } from "../lib/enum/paymentStatus";
+import { Payment } from "../lib/classes/Payment";
+import { ISubscriptionType } from "../lib/interfaces/ISubcriptionType";
+import { Monthly } from "../lib/classes/monthly";
+import { Currency } from "../lib/classes/currency";
+import { PayPal } from "../lib/classes/Paypal";
 
 const today = new Date();
 
@@ -56,3 +61,27 @@ doctor.specialties[0].createMedicalRecord(patient, recordNeurologist);
 // doctor.specialties[0].modifyMedicalRecord();
 
 console.log(patient.medicalRecord);
+
+////////////////// Patient Pays Subscription
+const patient2 = new Patient(
+  "John Doe",
+  today,
+  "heladero",
+  80,
+  1.8,
+  "233123123",
+  "johnm@gmail.com",
+  PaymentStatus.DEBTOR,
+  patientMedicalRecord
+);
+
+const subtype = new Monthly(new Currency(18, "$"));
+
+const payment = new Payment(
+  patient2,
+  new Date(),
+  subtype,
+  new PayPal("Si", subtype.Cost)
+);
+console.log("El paciente pagó");
+console.log(payment);

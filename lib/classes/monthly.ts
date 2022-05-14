@@ -2,7 +2,7 @@ import { ISubscriptionType } from "../interfaces/ISubcriptionType";
 
 import { Currency } from "./currency";
 
-class Monthly implements ISubscriptionType {
+export class Monthly implements ISubscriptionType {
   //Atributes
   paymentModality: string;
   subscriptionCost: Currency;
@@ -19,5 +19,12 @@ class Monthly implements ISubscriptionType {
   setCost(cost: number): void {
     this.subscriptionCost.value = Number(cost) * this.period;
     this.subscriptionCost.currencyType = "$";
+  }
+
+  public get Cost(): Currency {
+    return new Currency(
+      this.subscriptionCost.value,
+      this.subscriptionCost.currencyType
+    );
   }
 }

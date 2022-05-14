@@ -120,6 +120,10 @@ export class Patient {
     return this._paymentStatus;
   }
 
+  public set paymentStatus(value: PaymentStatus) {
+    this._paymentStatus = value;
+  }
+
   public get medicalRecord() {
     return this._medicalRecord;
   }
