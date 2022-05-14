@@ -1,5 +1,5 @@
 import { MedicalRecord } from "./MedicalRecord";
-import { Patient } from "../Patient";
+import { Patient } from "../patient";
 
 export class NeurologistRecord extends MedicalRecord {
   private _motor: string | null;
