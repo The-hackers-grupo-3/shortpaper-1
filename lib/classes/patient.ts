@@ -3,6 +3,7 @@
 */
 import { PaymentStatus } from "../enum/PaymentStatus";
 import { MedicalRecord } from "./MedicalRecords/MedicalRecord";
+
 export class Patient {
   private _name: string;
   private _birthday: Date;
