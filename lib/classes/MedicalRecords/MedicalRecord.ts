@@ -1,6 +1,7 @@
-import { IObservable } from "../../interfaces/IObservable";
-import { IObserver } from "../../interfaces/IObserver";
+import { IObserver } from "../AuditRecord/IObserver";
+import { IRecordChange } from "../AuditRecord/IRecordChange";
 import { Patient } from "../Patient";
+import { IObservable } from "./IObservable";
 
 export abstract class MedicalRecord implements IObservable {
   private _id: string;

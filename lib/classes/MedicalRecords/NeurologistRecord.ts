@@ -1,5 +1,6 @@
 import { MedicalRecord } from "./MedicalRecord";
 import { Patient } from "../Patient";
+import { RecordChangeBase } from "../AuditRecord/RecordChangeBase";
 
 export class NeurologistRecord extends MedicalRecord {
   private _motor: string | null;
@@ -88,13 +89,8 @@ export class NeurologistRecord extends MedicalRecord {
 
   public modify(neurologist: NeurologistRecord): void {
     const todayDate = new Date();
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
     try {
-      const recordChange = new RecordChangeBase(
-        todayDate,
-        neurologist,
-        Object.assign(this)
-      );
+      const recordChange = new RecordChangeBase(todayDate, neurologist, this);
 
       this.Id = neurologist.Id;
       this.CreationDate = neurologist.CreationDate;

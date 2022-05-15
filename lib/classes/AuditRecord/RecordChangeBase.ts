@@ -53,7 +53,7 @@ export class RecordChangeBase implements IRecordChange {
         diferenceString += `${key}: ${value}`;
         diferenceString += "\n";
       } else {
-        diferenceString += `${key}: ${value}\t➡\t`;
+        diferenceString += `${key}: ${value}\t-->\t`;
       }
       paridad++;
     }
