@@ -1,5 +1,6 @@
 import { MedicalRecord } from "./MedicalRecord";
 import { Patient } from "../patient";
+import { RecordChangeBase } from "../AuditRecord/RecordChangeBase";
 
 export class BaseRecord extends MedicalRecord {
   public createMedicalRecord(patient: Patient): void {
@@ -11,11 +12,15 @@ export class BaseRecord extends MedicalRecord {
   }
 
   public create(patient: Patient): void {
+    const todayDate = new Date();
+    const recordChange = new RecordChangeBase(todayDate, this);
     patient.medicalRecord.addMedicalRecord(this);
-    this.notify();
+    this.notify(recordChange);
   }
 
   public modify(baseRecord: BaseRecord): void {
+    const todayDate = new Date();
+    const recordChange = new RecordChangeBase(todayDate, baseRecord, this);
     this.Id = baseRecord.Id;
     this.CreationDate = baseRecord.CreationDate;
     this.Weight = baseRecord.Weight;
@@ -24,6 +29,6 @@ export class BaseRecord extends MedicalRecord {
     this.HeartRate = baseRecord.HeartRate;
     this.BloodPressure = baseRecord.BloodPressure;
     this.Saturation = baseRecord.Saturation;
-    this.notify();
+    this.notify(recordChange);
   }
 }

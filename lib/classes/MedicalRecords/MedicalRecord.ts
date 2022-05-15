@@ -1,4 +1,5 @@
 import { IObserver } from "../AuditRecord/IObserver";
+import { IRecordChange } from "../AuditRecord/IRecordChange";
 import { Patient } from "../patient";
 import { IObservable } from "./IObservable";
 
@@ -175,23 +176,7 @@ export abstract class MedicalRecord implements IObservable {
     this._auditorRec = this._auditorRec.filter((obs) => obs !== o);
   }
 
-  notify(medicalRecord: MedicalRecord): void;
-
-  notify(
-    newMedicalRecord: MedicalRecord,
-    oldMedicalRecord: MedicalRecord
-  ): void;
-
-  notify(
-    newMedicalRecord: MedicalRecord,
-    oldMedicalRecord?: MedicalRecord
-  ): void {
-    if (oldMedicalRecord) {
-      this._auditorRec.forEach((obs) =>
-        obs.update(newMedicalRecord, oldMedicalRecord)
-      );
-      return;
-    }
-    this._auditorRec.forEach((obs) => obs.update(newMedicalRecord));
+  notify(recordChange: IRecordChange): void {
+    this._auditorRec.forEach((obs) => obs.update(recordChange));
   }
 }

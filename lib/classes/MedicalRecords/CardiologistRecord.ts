@@ -1,5 +1,6 @@
 import { MedicalRecord } from "./MedicalRecord";
 import { Patient } from "../patient";
+import { RecordChangeBase } from "../AuditRecord/RecordChangeBase";
 
 export class CardiologistRecord extends MedicalRecord {
   private _QRSduration: number | null;
@@ -80,22 +81,31 @@ export class CardiologistRecord extends MedicalRecord {
   //METHODS
 
   public create(patient: Patient) {
+    const todayDate = new Date();
+    const recordChange = new RecordChangeBase(todayDate, this);
     patient.medicalRecord.addMedicalRecord(this);
-    this.notify(this);
+    this.notify(recordChange);
   }
 
   public modify(cardiologist: CardiologistRecord): void {
-    this.QRSduration = cardiologist.QRSduration;
-    this.QTc = cardiologist.QTc;
-    this.Pwave = cardiologist.Pwave;
-    this.Id = cardiologist.Id;
-    this.CreationDate = cardiologist.CreationDate;
-    this.Weight = cardiologist.Weight;
-    this.Height = cardiologist.Height;
-    this.PersonalHistory = cardiologist.PersonalHistory;
-    this.HeartRate = cardiologist.HeartRate;
-    this.BloodPressure = cardiologist.BloodPressure;
-    this.Saturation = cardiologist.Saturation;
-    this.notify(cardiologist);
+    const todayDate = new Date();
+    const recordChange = new RecordChangeBase(todayDate, cardiologist, this);
+
+    try {
+      this.QRSduration = cardiologist.QRSduration;
+      this.QTc = cardiologist.QTc;
+      this.Pwave = cardiologist.Pwave;
+      this.Id = cardiologist.Id;
+      this.CreationDate = cardiologist.CreationDate;
+      this.Weight = cardiologist.Weight;
+      this.Height = cardiologist.Height;
+      this.PersonalHistory = cardiologist.PersonalHistory;
+      this.HeartRate = cardiologist.HeartRate;
+      this.BloodPressure = cardiologist.BloodPressure;
+      this.Saturation = cardiologist.Saturation;
+      this.notify(recordChange);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

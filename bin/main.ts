@@ -1,6 +1,7 @@
 import { Appointment } from "../lib/classes/Appointments/Appointment";
 import { AppointmentManagerImplDoctor } from "../lib/classes/Appointments/AppointmentManagerImplDoctor";
 import { AppointmentManagerImplPatient } from "../lib/classes/Appointments/AppointmentManagerImplPatient";
+import { AuditRecord } from "../lib/classes/AuditRecord/AuditRecord";
 import { Doctor } from "../lib/classes/doctor";
 import { BaseRecord } from "../lib/classes/MedicalRecords/BaseRecord";
 import { NeurologistRecord } from "../lib/classes/MedicalRecords/NeurologistRecord";
@@ -33,6 +34,9 @@ const patient = new Patient(
   patientMedicalRecord,
   new AppointmentManagerImplPatient()
 );
+
+const auditRecord = new AuditRecord(patientMedicalRecord);
+patientMedicalRecord.attach(auditRecord);
 
 const recordNeurologist1 = new NeurologistRecord(
   "1",
@@ -86,10 +90,13 @@ doctor.completeAppoinment(appointment, neurologist, recordNeurologist1);
 // Los Doctores solo pueden cambiar los Registro de Historia Médica que ellos hayan creado
 //-----------------------------------------------------------------------------------------
 
-console.log("---");
-console.log("---");
-console.log("---");
-console.log("---");
+// console.log("---");
+// console.log("---");
+// console.log("---");
+// console.log("---");
+
+const auditRecord2 = new AuditRecord(recordNeurologist1);
+recordNeurologist1.attach(auditRecord2);
 
 //OJO
 doctor
@@ -97,4 +104,5 @@ doctor
   .medicalRecord.findMedicalRecord(recordNeurologist1)
   .modify(recordNeurologist2);
 
-console.log(patient.medicalRecord);
+// console.log(patient.medicalRecord);
+// audit

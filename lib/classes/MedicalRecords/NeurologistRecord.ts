@@ -1,5 +1,6 @@
 import { MedicalRecord } from "./MedicalRecord";
 import { Patient } from "../patient";
+import { RecordChangeBase } from "../AuditRecord/RecordChangeBase";
 
 export class NeurologistRecord extends MedicalRecord {
   private _motor: string | null;
@@ -78,24 +79,38 @@ export class NeurologistRecord extends MedicalRecord {
   }
 
   public create(patient: Patient) {
+    const todayDate = new Date();
+    const recordChange = new RecordChangeBase(todayDate, this);
     patient.medicalRecord.addMedicalRecord(this);
-    console.log("SE HA CREADO LA HISTORIA MÉDICA");
+    // console.log("SE HA CREADO LA HISTORIA MÉDICA");
     console.log(patient.medicalRecord);
-    this.notify(this);
+    this.notify(recordChange);
   }
 
   public modify(neurologist: NeurologistRecord): void {
-    this.notify(neurologist, this);
-    this.Id = neurologist.Id;
-    this.CreationDate = neurologist.CreationDate;
-    this.Weight = neurologist.Weight;
-    this.Height = neurologist.Height;
-    this.PersonalHistory = neurologist.PersonalHistory;
-    this.HeartRate = neurologist.HeartRate;
-    this.BloodPressure = neurologist.BloodPressure;
-    this.Saturation = neurologist.Saturation;
-    this.Motor = neurologist.Motor;
-    this.Reflexes = neurologist.Reflexes;
-    this.Sensory = neurologist.Sensory;
+    const todayDate = new Date();
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    try {
+      const recordChange = new RecordChangeBase(
+        todayDate,
+        neurologist,
+        Object.assign(this)
+      );
+
+      this.Id = neurologist.Id;
+      this.CreationDate = neurologist.CreationDate;
+      this.Weight = neurologist.Weight;
+      this.Height = neurologist.Height;
+      this.PersonalHistory = neurologist.PersonalHistory;
+      this.HeartRate = neurologist.HeartRate;
+      this.BloodPressure = neurologist.BloodPressure;
+      this.Saturation = neurologist.Saturation;
+      this.Motor = neurologist.Motor;
+      this.Reflexes = neurologist.Reflexes;
+      this.Sensory = neurologist.Sensory;
+      this.notify(recordChange);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
