@@ -1,4 +1,3 @@
-import { Doc } from "prettier";
 import { MedicalAppointmentState } from "../../enum/MedicalAppointmentState";
 import { Doctor } from "../Doctor";
 import { Patient } from "../Patient";

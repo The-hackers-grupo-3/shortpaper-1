@@ -1,10 +1,11 @@
 /*
     Clase DOCTOR
 */
-import { Patient } from "./Patient";
+
 import { IAppointmentManager } from "../interfaces/IAppointmentManager";
-import { AppointmentManagerImpl } from "./AppointmentManagerImpl";
 import { Specialty } from "./Specialties/Specialty";
+import { AppointmentManagerImpl } from "./Appointments/AppointmentManagerImpl";
+import { Patient } from "./Patient";
 export class Doctor {
   private _name: string;
   private _patients: Patient[] = [];
