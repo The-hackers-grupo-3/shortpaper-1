@@ -1,6 +1,6 @@
 import { Specialty } from "./Specialty";
 import { NeurologistRecord } from "../MedicalRecords/NeurologistRecord";
-import { Patient } from "../Patient";
+import { Patient } from "../patient";
 import { MedicalRecord } from "../MedicalRecords/MedicalRecord";
 
 export class Neurologist implements Specialty {

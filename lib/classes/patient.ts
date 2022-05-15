@@ -1,7 +1,7 @@
 /*
     Clase PACIENTE
 */
-import { PaymentStatus } from "../enum/PaymentStatus";
+import { PaymentStatus } from "../enum/paymentStatus";
 import { MedicalRecord } from "./MedicalRecords/MedicalRecord";
 export class Patient {
   private _name: string;
@@ -118,6 +118,10 @@ export class Patient {
 
   public get paymentStatus() {
     return this._paymentStatus;
+  }
+
+  public set paymentStatus(value: PaymentStatus) {
+    this._paymentStatus = value;
   }
 
   public get medicalRecord() {

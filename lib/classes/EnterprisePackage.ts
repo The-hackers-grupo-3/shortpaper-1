@@ -1,8 +1,8 @@
 import { ISubscriptionType } from "../interfaces/ISubcriptionType";
 
-import { Currency } from "./Currency";
+import { Currency } from "./currency";
 
-class EnterprisePackage implements ISubscriptionType {
+export class EnterprisePackage implements ISubscriptionType {
   //Atributes
   paymentModality: string;
   subscriptionCost: Currency;
