@@ -79,10 +79,11 @@ export class NeurologistRecord extends MedicalRecord {
 
   public create(patient: Patient) {
     patient.medicalRecord.addMedicalRecord(this);
-    this.notify();
+    this.notify(this);
   }
 
   public modify(neurologist: NeurologistRecord): void {
+    this.notify(neurologist, this);
     this.Id = neurologist.Id;
     this.CreationDate = neurologist.CreationDate;
     this.Weight = neurologist.Weight;
@@ -94,6 +95,5 @@ export class NeurologistRecord extends MedicalRecord {
     this.Motor = neurologist.Motor;
     this.Reflexes = neurologist.Reflexes;
     this.Sensory = neurologist.Sensory;
-    this.notify();
   }
 }

@@ -81,7 +81,7 @@ export class CardiologistRecord extends MedicalRecord {
 
   public create(patient: Patient) {
     patient.medicalRecord.addMedicalRecord(this);
-    this.notify();
+    this.notify(this);
   }
 
   public modify(cardiologist: CardiologistRecord): void {
@@ -96,6 +96,6 @@ export class CardiologistRecord extends MedicalRecord {
     this.HeartRate = cardiologist.HeartRate;
     this.BloodPressure = cardiologist.BloodPressure;
     this.Saturation = cardiologist.Saturation;
-    this.notify();
+    this.notify(cardiologist);
   }
 }
