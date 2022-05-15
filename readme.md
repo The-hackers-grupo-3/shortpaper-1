@@ -10,7 +10,7 @@
 
 - Manuel De Olival [@madomss](https://github.com/madomss)
 
-- Jesús Soarez [@???](https://github.com/)
+- Jesús Soarez [@jesussoares](https://github.com/jesussoares)
 
 ## Herramientas 🛠
 
