@@ -6,6 +6,7 @@ import { Specialty } from "./Specialties/Specialty";
 import { Patient } from "./patient";
 import { Appointment } from "./Appointments/Appointment";
 import { IAppointmentManagerDoctor } from "../interfaces/IAppointmentManagerDoctor";
+import { MedicalRecord } from "./MedicalRecords/MedicalRecord";
 
 export class Doctor {
   private _name: string;
@@ -65,5 +66,27 @@ export class Doctor {
 
   public cancelAppointment(appointment: Appointment): void {
     this._appointmentManager.cancelAppointment(appointment);
+  }
+
+  public completeAppoinment(
+    appointment: Appointment,
+    specialty: Specialty,
+    medicalRecord: MedicalRecord
+  ): void {
+    this._appointmentManager.completeAppoinment(
+      appointment,
+      specialty,
+      medicalRecord
+    );
+  }
+
+  public findSpecialty(specialty: Specialty): Specialty {
+    const searchSpecialty = this._specialties.indexOf(specialty);
+
+    if (searchSpecialty === -1) {
+      throw new Error("El doctor no tiene la especialidad");
+    }
+
+    return this._specialties[searchSpecialty];
   }
 }
