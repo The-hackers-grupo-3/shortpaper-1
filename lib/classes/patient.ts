@@ -1,7 +1,7 @@
 /*
     Clase PACIENTE
 */
-import { PaymentStatus } from "../enum/paymentStatus";
+import { PaymentStatus } from "../enum/PaymentStatus";
 import { IAppointmentManagerPatient } from "../interfaces/IAppointmentManagerPatient";
 import { IPaymentMethod } from "../interfaces/IPaymentMethod";
 import { Doctor } from "./Doctor";
