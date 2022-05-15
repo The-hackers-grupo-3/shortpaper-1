@@ -3,7 +3,7 @@
 */
 
 import { Specialty } from "./Specialties/Specialty";
-import { Patient } from "./patient";
+import { Patient } from "./Patient";
 import { Appointment } from "./Appointments/Appointment";
 import { IAppointmentManagerDoctor } from "../interfaces/IAppointmentManagerDoctor";
 import { MedicalRecord } from "./MedicalRecords/MedicalRecord";

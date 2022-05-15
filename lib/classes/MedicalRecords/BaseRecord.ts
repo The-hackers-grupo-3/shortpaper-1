@@ -1,6 +1,5 @@
 import { MedicalRecord } from "./MedicalRecord";
-import { Patient } from "../patient";
-import { RecordChangeBase } from "../AuditRecord/RecordChangeBase";
+import { Patient } from "../Patient";
 
 export class BaseRecord extends MedicalRecord {
   public createMedicalRecord(patient: Patient): void {

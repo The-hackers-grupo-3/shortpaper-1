@@ -3,9 +3,11 @@
 */
 import { PaymentStatus } from "../enum/paymentStatus";
 import { IAppointmentManagerPatient } from "../interfaces/IAppointmentManagerPatient";
-import { Doctor } from "./doctor";
+import { IPaymentMethod } from "../interfaces/IPaymentMethod";
+import { Doctor } from "./Doctor";
 import { MedicalRecord } from "./MedicalRecords/MedicalRecord";
-import { Payment } from "./Payment";
+import { PaymentManager } from "./Payment/PaymentManager";
+import { SubscriptionType } from "./Payment/SubscriptionType";
 
 export class Patient {
   private _name: string;
@@ -18,6 +20,7 @@ export class Patient {
   private _paymentStatus: PaymentStatus;
   private _medicalRecord: MedicalRecord;
   private _appointmentManager: IAppointmentManagerPatient;
+  private _paymentManager: PaymentManager;
 
   constructor(
     name: string,
@@ -41,6 +44,7 @@ export class Patient {
     this._paymentStatus = paymentStatus;
     this._medicalRecord = medicalRecord;
     this._appointmentManager = appointmentManager;
+    this._paymentManager = new PaymentManager();
   }
 
   public get name() {
@@ -135,7 +139,15 @@ export class Patient {
     this._appointmentManager.requestAppointment(doctor, this, new Date());
   }
 
-  public makePayment(payment: Payment) {
-    throw new Error("Metodo no implementado");
+  public makePayment(paymentMethod: IPaymentMethod) {
+    this._paymentManager.payMedicalSubscription(paymentMethod);
+  }
+
+  public cancelSubscription() {
+    this._paymentManager.cancelMedicalSubscription();
+  }
+
+  public changeSubscriptionType(subscriptionType: SubscriptionType) {
+    this._paymentManager.changeSubscriptionType(subscriptionType);
   }
 }

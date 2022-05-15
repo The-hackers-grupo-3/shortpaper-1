@@ -2,13 +2,13 @@ import { Appointment } from "../lib/classes/Appointments/Appointment";
 import { AppointmentManagerImplDoctor } from "../lib/classes/Appointments/AppointmentManagerImplDoctor";
 import { AppointmentManagerImplPatient } from "../lib/classes/Appointments/AppointmentManagerImplPatient";
 import { AuditRecord } from "../lib/classes/AuditRecord/AuditRecord";
-import { Doctor } from "../lib/classes/doctor";
+import { Doctor } from "../lib/classes/Doctor";
 import { BaseRecord } from "../lib/classes/MedicalRecords/BaseRecord";
 import { NeurologistRecord } from "../lib/classes/MedicalRecords/NeurologistRecord";
-import { Patient } from "../lib/classes/patient";
+import { Patient } from "../lib/classes/Patient";
 import { Cardiologist } from "../lib/classes/Specialties/Cardiologist";
 import { Neurologist } from "../lib/classes/Specialties/Neurologist";
-import { MedicalAppointmentState } from "../lib/enum/medicalAppointmentState";
+import { MedicalAppointmentState } from "../lib/enum/MedicalAppointmentState";
 import { PaymentStatus } from "../lib/enum/paymentStatus";
 
 const today = new Date();
