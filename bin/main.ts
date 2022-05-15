@@ -48,9 +48,24 @@ const recordNeurologist1 = new NeurologistRecord(
   "Chequeo Receptor sensorial"
 );
 
-const doctor = new Doctor("Dr. Smith", new AppointmentManagerImplDoctor(), [
-  neurologist,
-]);
+const recordNeurologist2 = new NeurologistRecord(
+  "1",
+  new Date(),
+  65,
+  178,
+  "Enfermo de la barriga",
+  45,
+  46,
+  47,
+  "Todo bien",
+  "Todo bien",
+  "Todo bien"
+);
+
+const doctor = new Doctor("Dr. Smith", new AppointmentManagerImplDoctor(), []);
+
+doctor.addSpecialty(neurologist);
+doctor.addPatient(patient);
 
 const appointment = new Appointment(
   new Date(),
@@ -61,36 +76,25 @@ const appointment = new Appointment(
 
 doctor.completeAppoinment(appointment, neurologist, recordNeurologist1);
 
-//-------------------------------------------------------------------------------------------------------
+// console.log("---");
+// console.log("---");
+// console.log("---");
+// console.log("---");
+// console.log(patient.medicalRecord);
 
-// doctor.addPatient(patient);
-// doctor.addSpecialty(new Neurologist());
-// const recordNeurologist = new NeurologistRecord(
-//   "1",
-//   new Date(),
-//   65,
-//   178,
-//   "Enfermo de la barriga",
-//   45,
-//   46,
-//   47,
-//   "Hola",
-//   "Hola",
-//   "Hola"
-// );
+//--------------------------------------TEST-----------------------------------------------
+// Los Doctores solo pueden cambiar los Registro de Historia Médica que ellos hayan creado
+//-----------------------------------------------------------------------------------------
 
-// const modifyRecord = new NeurologistRecord(
-//   "1",
-//   new Date(),
-//   65,
-//   178,
-//   "Enfermo de la barriga",
-//   45,
-//   46,
-//   47,
-//   "Xao",
-//   "Xao",
-//   "Xao"
-// );
+console.log("---");
+console.log("---");
+console.log("---");
+console.log("---");
 
-// // doctor.specialties[0].modifyMedicalRecord();
+//OJO
+doctor
+  .findPatient(patient)
+  .medicalRecord.findMedicalRecord(recordNeurologist1)
+  .modify(recordNeurologist2);
+
+console.log(patient.medicalRecord);

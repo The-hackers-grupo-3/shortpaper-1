@@ -80,6 +80,16 @@ export class Doctor {
     );
   }
 
+  public findPatient(patient: Patient): Patient {
+    const searchPatient = this._patients.indexOf(patient);
+
+    if (searchPatient === -1) {
+      throw new Error("El paciente no ha sido atendido por el doctor");
+    }
+
+    return this._patients[searchPatient];
+  }
+
   public findSpecialty(specialty: Specialty): Specialty {
     const searchSpecialty = this._specialties.indexOf(specialty);
 

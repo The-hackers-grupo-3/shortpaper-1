@@ -156,6 +156,16 @@ export abstract class MedicalRecord implements IObservable {
     this._registers.push(medicalRecord);
   }
 
+  public findMedicalRecord(medicalRecord: MedicalRecord): MedicalRecord {
+    const searchRecord = this._registers.indexOf(medicalRecord);
+
+    if (searchRecord === -1) {
+      throw new Error("El medical record no existe");
+    }
+
+    return this._registers[searchRecord];
+  }
+
   //Métodos de la implementación del Observer
   attach(o: IObserver) {
     this._auditorRec.push(o);
