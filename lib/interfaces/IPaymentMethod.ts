@@ -1,4 +1,9 @@
+import { SubscriptionType } from "../classes/Payment/SubscriptionType";
+
 export interface IPaymentMethod {
   //Methods
-  PayMedicalSubscription(): void;
+  payMedicalSubscription(
+    subscriptionType: SubscriptionType,
+    paymentDate: Date
+  ): void;
 }

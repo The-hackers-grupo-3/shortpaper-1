@@ -1,4 +1,4 @@
-import { MedicalAppointmentState } from "../../enum/medicalAppointmentState";
+import { MedicalAppointmentState } from "../../enum/MedicalAppointmentState";
 import { IAppointmentManagerDoctor } from "../../interfaces/IAppointmentManagerDoctor";
 import { MedicalRecord } from "../MedicalRecords/MedicalRecord";
 import { Specialty } from "../Specialties/Specialty";
@@ -46,7 +46,7 @@ export class AppointmentManagerImplDoctor implements IAppointmentManagerDoctor {
   }
 
   public searchAppointment(appointment: Appointment): Appointment {
-    for (let i = 0; i <= this._appointments.length; i++) {
+    for (let i = 0; i < this._appointments.length; i++) {
       //recorre todo el array de appointments
       if (this._appointments[i] == appointment) {
         return this._appointments[i];
