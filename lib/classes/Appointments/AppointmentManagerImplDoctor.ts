@@ -1,5 +1,7 @@
 import { MedicalAppointmentState } from "../../enum/medicalAppointmentState";
 import { IAppointmentManagerDoctor } from "../../interfaces/IAppointmentManagerDoctor";
+import { MedicalRecord } from "../MedicalRecords/MedicalRecord";
+import { Specialty } from "../Specialties/Specialty";
 import { Appointment } from "./Appointment";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -26,6 +28,21 @@ export class AppointmentManagerImplDoctor implements IAppointmentManagerDoctor {
 
   public seeAppointments(): Appointment[] {
     return this._appointments;
+  }
+
+  public completeAppoinment(
+    appointment: Appointment,
+    specialty: Specialty,
+    medicalRecord: MedicalRecord
+  ): void {
+    appointment.status = MedicalAppointmentState.COMPLETED;
+    try {
+      appointment.doctor
+        .findSpecialty(specialty)
+        .createMedicalRecord(appointment.patient, medicalRecord);
+    } catch {
+      console.log("El medicono no tiene especialidades");
+    }
   }
 
   public searchAppointment(appointment: Appointment): Appointment {

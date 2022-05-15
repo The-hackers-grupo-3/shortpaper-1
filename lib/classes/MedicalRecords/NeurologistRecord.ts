@@ -79,6 +79,8 @@ export class NeurologistRecord extends MedicalRecord {
 
   public create(patient: Patient) {
     patient.medicalRecord.addMedicalRecord(this);
+    console.log("SE HA CREADO LA HISTORIA MÉDICA");
+    console.log(patient.medicalRecord);
     this.notify(this);
   }
 
