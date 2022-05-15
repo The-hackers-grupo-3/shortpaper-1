@@ -1,9 +1,9 @@
-import { Doctor } from "../lib/classes/Doctor";
+import { Doctor } from "../lib/classes/doctor";
 import { BaseRecord } from "../lib/classes/MedicalRecords/BaseRecord";
 import { NeurologistRecord } from "../lib/classes/MedicalRecords/NeurologistRecord";
-import { Patient } from "../lib/classes/Patient";
+import { Patient } from "../lib/classes/patient";
 import { Neurologist } from "../lib/classes/Specialties/Neurologist";
-import { PaymentStatus } from "../lib/enum/PaymentStatus";
+import { PaymentStatus } from "../lib/enum/paymentStatus";
 
 const today = new Date();
 

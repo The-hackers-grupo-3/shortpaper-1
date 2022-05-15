@@ -1,7 +1,7 @@
 /*
     Clase PACIENTE
 */
-import { PaymentStatus } from "../enum/PaymentStatus";
+import { PaymentStatus } from "../enum/paymentStatus";
 import { MedicalRecord } from "./MedicalRecords/MedicalRecord";
 
 export class Patient {

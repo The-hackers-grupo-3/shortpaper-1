@@ -1,7 +1,7 @@
-import { MedicalAppointmentState } from "../../enum/MedicalAppointmentState";
+import { MedicalAppointmentState } from "../../enum/medicalAppointmentState";
 import { IAppointmentManager } from "../../interfaces/IAppointmentManager";
-import { Doctor } from "../Doctor";
-import { Patient } from "../Patient";
+import { Doctor } from "../doctor";
+import { Patient } from "../patient";
 import { Appointment } from "./Appointment";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */

@@ -5,7 +5,7 @@
 import { IAppointmentManager } from "../interfaces/IAppointmentManager";
 import { Specialty } from "./Specialties/Specialty";
 import { AppointmentManagerImpl } from "./Appointments/AppointmentManagerImpl";
-import { Patient } from "./Patient";
+import { Patient } from "./patient";
 
 export class Doctor {
   private _name: string;

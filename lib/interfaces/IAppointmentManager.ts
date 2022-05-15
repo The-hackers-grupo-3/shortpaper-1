@@ -1,6 +1,6 @@
 import { Appointment } from "../classes/Appointments/Appointment";
-import { Doctor } from "../classes/Doctor";
-import { Patient } from "../classes/Patient";
+import { Doctor } from "../classes/doctor";
+import { Patient } from "../classes/patient";
 
 export interface IAppointmentManager {
   requestAppointment(doctor: Doctor, patient: Patient, date: Date): void;

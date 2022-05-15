@@ -1,17 +1,17 @@
 import { IPaymentMethod } from "../interfaces/IPaymentMethod";
-import { ISubscriptionType } from "../interfaces/ISubcriptionType";
-import { Patient } from "./Patient";
+import { SubscriptionType } from "./AbstractClasses/SubscriptionType";
+import { Patient } from "./patient";
 
-class Payment {
+export class Payment {
   patient?: Patient;
   paymentDate?: Date;
-  suscriptionType?: ISubscriptionType;
+  suscriptionType?: SubscriptionType;
   paymentMethod?: IPaymentMethod;
 
   constructor(
     patient: Patient,
     paymentDate: Date,
-    suscriptionType: ISubscriptionType,
+    suscriptionType: SubscriptionType,
     paymentMethod: IPaymentMethod
   ) {
     this.patient = patient;
