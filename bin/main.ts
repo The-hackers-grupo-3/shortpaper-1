@@ -104,5 +104,7 @@ doctor
   .medicalRecord.findMedicalRecord(recordNeurologist1)
   .modify(recordNeurologist2);
 
+// ver tema que se actualice desde la clase base del registro
+
 // console.log(patient.medicalRecord);
 // audit
