@@ -1,28 +1,13 @@
 import { MedicalAppointmentState } from "../../enum/medicalAppointmentState";
-import { IAppointmentManager } from "../../interfaces/IAppointmentManager";
-import { Doctor } from "../doctor";
-import { Patient } from "../patient";
+import { IAppointmentManagerDoctor } from "../../interfaces/IAppointmentManagerDoctor";
 import { Appointment } from "./Appointment";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-export class AppointmentManagerImpl implements IAppointmentManager {
+export class AppointmentManagerImplDoctor implements IAppointmentManagerDoctor {
   private _appointments: Appointment[] = [];
 
   constructor(appointments?: Appointment[]) {
     this._appointments = appointments || [];
-  }
-
-  public get appointments(): Appointment[] {
-    return this._appointments;
-  }
-
-  requestAppointment(doctor: Doctor, patient: Patient, date: Date): void {
-    this._appointments.push(
-      new Appointment(date, MedicalAppointmentState.PENDING, doctor, patient)
-    );
-    console.log(
-      `El paciente ${patient.name} ha solicitado una cita al Doctor ${doctor.name} para el dia ${date}.`
-    );
   }
 
   acceptAppointment(appointment: Appointment): void {
@@ -37,6 +22,10 @@ export class AppointmentManagerImpl implements IAppointmentManager {
     console.log(
       `El Doctor ${appointment.doctor.name} cancelo la cita solicitada por el paciente ${appointment.patient.name} para el dia ${appointment.appointmentDate}.`
     );
+  }
+
+  public seeAppointments(): Appointment[] {
+    return this._appointments;
   }
 
   public searchAppointment(appointment: Appointment): Appointment {

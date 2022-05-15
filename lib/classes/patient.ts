@@ -1,8 +1,11 @@
 /*
     Clase PACIENTE
 */
-import { PaymentStatus } from "../enum/paymentStatus";
+import { PaymentStatus } from "../enum/PaymentStatus";
+import { IAppointmentManagerPatient } from "../interfaces/IAppointmentManagerPatient";
+import { Doctor } from "./doctor";
 import { MedicalRecord } from "./MedicalRecords/MedicalRecord";
+import { Payment } from "./Payment";
 
 export class Patient {
   private _name: string;
@@ -14,6 +17,7 @@ export class Patient {
   private _email: string;
   private _paymentStatus: PaymentStatus;
   private _medicalRecord: MedicalRecord;
+  private _appointmentManager: IAppointmentManagerPatient;
 
   constructor(
     name: string,
@@ -24,7 +28,8 @@ export class Patient {
     phone: string,
     email: string,
     paymentStatus: PaymentStatus,
-    medicalRecord: MedicalRecord
+    medicalRecord: MedicalRecord,
+    appointmentManager: IAppointmentManagerPatient
   ) {
     this._name = name;
     this._birthday = birthday;
@@ -35,6 +40,7 @@ export class Patient {
     this._email = email;
     this._paymentStatus = paymentStatus;
     this._medicalRecord = medicalRecord;
+    this._appointmentManager = appointmentManager;
   }
 
   public get name() {
@@ -125,7 +131,11 @@ export class Patient {
     return this._medicalRecord;
   }
 
-  public makePayment() {
+  public requestAppointment(doctor: Doctor) {
+    this._appointmentManager.requestAppointment(doctor, this, new Date());
+  }
+
+  public makePayment(payment: Payment) {
     throw new Error("Metodo no implementado");
   }
 }

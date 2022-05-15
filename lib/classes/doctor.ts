@@ -2,21 +2,25 @@
     Clase DOCTOR
 */
 
-import { IAppointmentManager } from "../interfaces/IAppointmentManager";
 import { Specialty } from "./Specialties/Specialty";
-import { AppointmentManagerImpl } from "./Appointments/AppointmentManagerImpl";
 import { Patient } from "./patient";
+import { Appointment } from "./Appointments/Appointment";
+import { IAppointmentManagerDoctor } from "../interfaces/IAppointmentManagerDoctor";
 
 export class Doctor {
   private _name: string;
   private _patients: Patient[] = [];
   private _specialties: Specialty[] = [];
-  private _appointmentManager: IAppointmentManager;
+  private _appointmentManager: IAppointmentManagerDoctor;
 
-  constructor(name: string, specialties?: Specialty[]) {
+  constructor(
+    name: string,
+    appointmentManager: IAppointmentManagerDoctor,
+    specialties?: Specialty[]
+  ) {
     this._name = name;
     this._specialties = specialties || [];
-    this._appointmentManager = new AppointmentManagerImpl();
+    this._appointmentManager = appointmentManager;
   }
 
   public get name() {
@@ -46,5 +50,20 @@ export class Doctor {
 
   public addPatient(patient: Patient) {
     this._patients.push(patient);
+  }
+
+  public seeApointments(): void {
+    for (const appointment of this._appointmentManager.seeAppointments()) {
+      console.log(`Cita con el paciente: ${appointment.patient.name}
+                   El dia: ${appointment.appointmentDate}\n`);
+    }
+  }
+
+  public acceptAppointment(appointment: Appointment): void {
+    this._appointmentManager.acceptAppointment(appointment);
+  }
+
+  public cancelAppointment(appointment: Appointment): void {
+    this._appointmentManager.cancelAppointment(appointment);
   }
 }
