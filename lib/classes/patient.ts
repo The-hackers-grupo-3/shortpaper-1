@@ -124,4 +124,8 @@ export class Patient {
   public get medicalRecord() {
     return this._medicalRecord;
   }
+
+  public makePayment() {
+    throw new Error("Metodo no implementado");
+  }
 }

@@ -1,5 +1,4 @@
 import { ISubscriptionType } from "../interfaces/ISubcriptionType";
-
 import { Currency } from "./Currency";
 
 class Monthly implements ISubscriptionType {
