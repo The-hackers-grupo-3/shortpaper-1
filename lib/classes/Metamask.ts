@@ -1,6 +1,6 @@
 import { IPaymentMethod } from "../interfaces/IPaymentMethod";
 
-import { Currency } from "./currency";
+import { Currency } from "./Currency";
 
 export class Metamask implements IPaymentMethod {
   //Atributes

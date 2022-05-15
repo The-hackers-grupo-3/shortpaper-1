@@ -1,5 +1,5 @@
 import { MedicalRecord } from "./MedicalRecord";
-import { Patient } from "../patient";
+import { Patient } from "../Patient";
 
 export class CardiologistRecord extends MedicalRecord {
   private _QRSduration: number | null;

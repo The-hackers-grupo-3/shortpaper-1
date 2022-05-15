@@ -1,8 +1,8 @@
 import { IPaymentMethod } from "../interfaces/IPaymentMethod";
 
-import { Currency } from "./currency";
+import { Currency } from "./Currency";
 
-export class PayPal implements IPaymentMethod {
+class PayPal implements IPaymentMethod {
   //Atributes
   payment: string;
   subscriptionCost: Currency;

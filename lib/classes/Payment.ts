@@ -1,8 +1,8 @@
 import { IPaymentMethod } from "../interfaces/IPaymentMethod";
 import { ISubscriptionType } from "../interfaces/ISubcriptionType";
-import { Patient } from "./patient";
+import { Patient } from "./Patient";
 
-export class Payment {
+class Payment {
   patient?: Patient;
   paymentDate?: Date;
   suscriptionType?: ISubscriptionType;
