@@ -13,7 +13,7 @@ export abstract class MedicalRecord implements IObservable {
   private _bloodPressure: number | null;
   private _saturation: number | null;
   private _registers: MedicalRecord[] = [];
-  private _auditorRec: IObserver[] = [];
+  private _auditors: IObserver[] = [];
 
   constructor(
     id: string,
@@ -153,7 +153,7 @@ export abstract class MedicalRecord implements IObservable {
     return this._registers;
   }
 
-  addMedicalRecord(medicalRecord: MedicalRecord) {
+  public addMedicalRecord(medicalRecord: MedicalRecord) {
     this._registers.push(medicalRecord);
   }
 
@@ -169,14 +169,14 @@ export abstract class MedicalRecord implements IObservable {
 
   //Métodos de la implementación del Observer
   attach(o: IObserver) {
-    this._auditorRec.push(o);
+    this._auditors.push(o);
   }
 
   detach(o: IObserver) {
-    this._auditorRec = this._auditorRec.filter((obs) => obs !== o);
+    this._auditors = this._auditors.filter((obs) => obs !== o);
   }
 
   notify(recordChange: IRecordChange): void {
-    this._auditorRec.forEach((obs) => obs.update(recordChange));
+    this._auditors.forEach((obs) => obs.update(recordChange));
   }
 }

@@ -1,9 +1,9 @@
 import { CardiologistRecord } from "../MedicalRecords/CardiologistRecord";
 import { MedicalRecord } from "../MedicalRecords/MedicalRecord";
 import { Patient } from "../Patient";
-import { Specialty } from "./Specialty";
+import { ISpecialty } from "./ISpecialty";
 
-export class Cardiologist implements Specialty {
+export class Cardiologist implements ISpecialty {
   public createMedicalRecord(
     patient: Patient,
     medicalRecord: CardiologistRecord

@@ -36,7 +36,7 @@ const patient = new Patient(
   new AppointmentManagerImplPatient()
 );
 
-const auditRecord = new AuditRecord(patientMedicalRecord);
+const auditRecord = new AuditRecord();
 patientMedicalRecord.attach(auditRecord);
 
 const recordNeurologist1 = new NeurologistRecord(
@@ -96,7 +96,7 @@ doctor.completeAppoinment(appointment, neurologist, recordNeurologist1);
 // console.log("---");
 // console.log("---");
 
-const auditRecord2 = new AuditRecord(recordNeurologist1);
+const auditRecord2 = new AuditRecord();
 recordNeurologist1.attach(auditRecord2);
 
 //OJO

@@ -2,7 +2,7 @@
     Clase DOCTOR
 */
 
-import { Specialty } from "./Specialties/Specialty";
+import { ISpecialty } from "./Specialties/ISpecialty";
 import { Patient } from "./Patient";
 import { Appointment } from "./Appointments/Appointment";
 import { IAppointmentManagerDoctor } from "../interfaces/IAppointmentManagerDoctor";
@@ -11,13 +11,13 @@ import { MedicalRecord } from "./MedicalRecords/MedicalRecord";
 export class Doctor {
   private _name: string;
   private _patients: Patient[] = [];
-  private _specialties: Specialty[] = [];
+  private _specialties: ISpecialty[] = [];
   private _appointmentManager: IAppointmentManagerDoctor;
 
   constructor(
     name: string,
     appointmentManager: IAppointmentManagerDoctor,
-    specialties?: Specialty[]
+    specialties?: ISpecialty[]
   ) {
     this._name = name;
     this._specialties = specialties || [];
@@ -40,7 +40,7 @@ export class Doctor {
     return this._specialties;
   }
 
-  public addSpecialty(specialty: Specialty) {
+  public addSpecialty(specialty: ISpecialty) {
     this._specialties.push(specialty);
   }
 
@@ -70,7 +70,7 @@ export class Doctor {
 
   public completeAppoinment(
     appointment: Appointment,
-    specialty: Specialty,
+    specialty: ISpecialty,
     medicalRecord: MedicalRecord
   ): void {
     this._appointmentManager.completeAppoinment(
@@ -90,7 +90,7 @@ export class Doctor {
     return this._patients[searchPatient];
   }
 
-  public findSpecialty(specialty: Specialty): Specialty {
+  public findSpecialty(specialty: ISpecialty): ISpecialty {
     const searchSpecialty = this._specialties.indexOf(specialty);
 
     if (searchSpecialty === -1) {

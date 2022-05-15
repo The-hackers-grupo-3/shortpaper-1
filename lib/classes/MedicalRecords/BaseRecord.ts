@@ -3,14 +3,6 @@ import { Patient } from "../Patient";
 import { RecordChangeBase } from "../AuditRecord/RecordChangeBase";
 
 export class BaseRecord extends MedicalRecord {
-  public createMedicalRecord(patient: Patient): void {
-    this.create(patient);
-  }
-
-  public modifyMedicalRecord(baseRecord: BaseRecord): void {
-    this.modify(baseRecord);
-  }
-
   public create(patient: Patient): void {
     const todayDate = new Date();
     const recordChange = new RecordChangeBase(todayDate, this);

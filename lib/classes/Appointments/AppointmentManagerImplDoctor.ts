@@ -1,7 +1,7 @@
 import { MedicalAppointmentState } from "../../enum/MedicalAppointmentState";
 import { IAppointmentManagerDoctor } from "../../interfaces/IAppointmentManagerDoctor";
 import { MedicalRecord } from "../MedicalRecords/MedicalRecord";
-import { Specialty } from "../Specialties/Specialty";
+import { ISpecialty } from "../Specialties/ISpecialty";
 import { Appointment } from "./Appointment";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -32,7 +32,7 @@ export class AppointmentManagerImplDoctor implements IAppointmentManagerDoctor {
 
   public completeAppoinment(
     appointment: Appointment,
-    specialty: Specialty,
+    specialty: ISpecialty,
     medicalRecord: MedicalRecord
   ): void {
     appointment.status = MedicalAppointmentState.COMPLETED;

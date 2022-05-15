@@ -1,6 +1,6 @@
 import { Appointment } from "../classes/Appointments/Appointment";
 import { MedicalRecord } from "../classes/MedicalRecords/MedicalRecord";
-import { Specialty } from "../classes/Specialties/Specialty";
+import { ISpecialty } from "../classes/Specialties/ISpecialty";
 
 export interface IAppointmentManagerDoctor {
   acceptAppointment(appointment: Appointment): void;
@@ -9,7 +9,7 @@ export interface IAppointmentManagerDoctor {
   searchAppointment(appointment: Appointment): Appointment;
   completeAppoinment(
     appointment: Appointment,
-    specialty: Specialty,
+    specialty: ISpecialty,
     medicalRecord: MedicalRecord
   ): void;
 }
