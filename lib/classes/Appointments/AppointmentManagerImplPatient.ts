@@ -15,9 +15,15 @@ export class AppointmentManagerImplPatient
   }
 
   requestAppointment(doctor: Doctor, patient: Patient, date: Date): void {
-    this._appointments.push(
-      new Appointment(date, MedicalAppointmentState.PENDING, doctor, patient)
+    const appointment = new Appointment(
+      date,
+      MedicalAppointmentState.PENDING,
+      doctor,
+      patient
     );
+
+    this._appointments.push(appointment);
+    doctor.appointmentManager.seeAppointments().push(appointment);
     console.log(
       `El paciente ${patient.name} ha solicitado una cita al Doctor ${doctor.name} para el dia ${date}.`
     );

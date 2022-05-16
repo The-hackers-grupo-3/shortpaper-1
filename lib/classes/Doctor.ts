@@ -36,6 +36,10 @@ export class Doctor {
     return this._specialties;
   }
 
+  public get appointmentManager(): IAppointmentManagerDoctor {
+    return this._appointmentManager;
+  }
+
   //TODO: Temporal
   public get patients() {
     return this._patients;

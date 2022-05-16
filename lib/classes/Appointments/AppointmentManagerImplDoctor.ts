@@ -12,6 +12,10 @@ export class AppointmentManagerImplDoctor implements IAppointmentManagerDoctor {
     this._appointments = appointments || [];
   }
 
+  public get appointments(): Appointment[] {
+    return this._appointments;
+  }
+
   acceptAppointment(appointment: Appointment): void {
     appointment.status = MedicalAppointmentState.SHCEDULED;
     console.log(
