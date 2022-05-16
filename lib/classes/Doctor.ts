@@ -1,7 +1,3 @@
-/*
-    Clase DOCTOR
-*/
-
 import { ISpecialty } from "./Specialties/ISpecialty";
 import { Patient } from "./Patient";
 import { Appointment } from "./Appointments/Appointment";
@@ -40,13 +36,13 @@ export class Doctor {
     return this._specialties;
   }
 
-  public addSpecialty(specialty: ISpecialty) {
-    this._specialties.push(specialty);
-  }
-
   //TODO: Temporal
   public get patients() {
     return this._patients;
+  }
+
+  public addSpecialty(specialty: ISpecialty): void {
+    this._specialties.push(specialty);
   }
 
   public addPatient(patient: Patient) {
