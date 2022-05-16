@@ -40,6 +40,10 @@ export class Doctor {
     return this._specialties;
   }
 
+  public get appointmentManager(): IAppointmentManagerDoctor {
+    return this._appointmentManager;
+  }
+
   public addSpecialty(specialty: Specialty) {
     this._specialties.push(specialty);
   }
