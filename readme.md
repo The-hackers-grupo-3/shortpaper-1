@@ -1,6 +1,6 @@
 # Primer Short-paper
 
-![build](https://img.shields.io/github/workflow/status/ArtuKILL/shortpaper-1/Node.js%20CI)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/The-hackers-grupo-3/shortpaper-1/Node.js%20CI)
 
 ## Miembros 🦸‍♂️
 
